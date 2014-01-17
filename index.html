@@ -13,6 +13,38 @@
 <body>
 
   <div class="container">
+
+    <h2>Client List</h2>
+    <section class="client-list-wrap">
+        <!-- <p>Client Name: <strong data-bind="text: clientName"></strong></p>
+        <p>Client Site: <strong data-bind="text: clientSite"></strong></p> -->
+        <ul data-bind="foreach: clients">
+            <li>
+                <span>
+                    Client Name: <strong data-bind="text: clientName"></strong>
+                    <input data-bind="visible: $root.editMode() > 0" />
+                </span>
+                <span>Client Site: <strong data-bind="text: clientSite"></strong></span> 
+                <span>Client Package: <strong data-bind="text: currentProduct().productName"></strong></span>
+                <span data-bind="text: formattedPrice"></span>
+                <a href="#0" data-bind="click: $root.editClient">Edit</a> | <a href="#" data-bind="click: $root.removeClient">Remove</a>
+            </li>
+        </ul>
+        <button data-bind="click: addClient">Add New</button>
+       
+        <!-- <ul data-bind="foreach: clients">
+            <li>
+                <p>
+                    <input data-bind="value: clientName" placeholder="Enter name" />
+                </p>
+                <p>
+                    <select data-bind="options: $root.availableProducts, value: currentProduct, optionsText: 'productName'"></select>
+                </p>
+                <p data-bind="text: formattedPrice"></p>
+            </li>
+        </ul>
+    </section> -->
+
 <!--     <section class="customers">
       <h2>Customers</h2>
       <ul></ul>
@@ -29,7 +61,7 @@
       <button data-bind="click: capitalizeLastName">Go caps</button>
     </section> -->
 
-    <section class="list-test">
+    <!-- <section class="list-test">
       <h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
         <h3 data-bind="visible: totalSurcharge() > 0">
             Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
@@ -39,7 +71,7 @@
               <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
           </tr></thead>
           <!-- Todo: Generate table body -->
-          <tbody data-bind="foreach: seats">
+          <!-- <tbody data-bind="foreach: seats">
         <tr>
             <td><input data-bind="value: name" placeholder="Enter name" /></td>
             <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
@@ -49,7 +81,7 @@
       </tbody>
       </table>
       <button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
-    </section>
+    </section>  -->
 
   </div>
   <script src="js/build/production.min.js"></script>
